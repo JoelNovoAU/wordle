@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.wordle.AbecedarioController"
+           prefHeight="589.0" prefWidth="743.0">
+
+
+    <ImageView fx:id="imgFondo" preserveRatio="false">
+        <image>
+            <Image url="@/images/fondo2.jpg" />
+        </image>
+    </ImageView>
+
+
+    <!-- 📦 CONTENIDO PRINCIPAL -->
+        <VBox spacing="20" style="-fx-padding: 30; -fx-alignment: center;">
+
+            <!-- TABLERO DE INTENTOS -->
+            <GridPane fx:id="gridIntentos" hgap="10" vgap="10" style="-fx-alignment: center;" />
+
+            <!-- INPUT DE INTENTO -->
+            <HBox spacing="10" style="-fx-alignment: center;">
+                <TextField fx:id="txtIntento"
+                           promptText="Escribe tu intento..."
+                           style="-fx-font-size: 16px; -fx-min-width: 250;" />
+                <Button fx:id="btnProbar"
+                        text="Probar"
+                        style="-fx-font-size: 16px;
+               -fx-font-weight: bold;
+               -fx-background-color: linear-gradient(to bottom, #333, #222);
+               -fx-text-fill: #f5f5f5;
+               -fx-background-radius: 8;
+               -fx-border-radius: 8;
+               -fx-border-color: red;
+               -fx-border-width: 1.5;
+               -fx-padding: 10 25;
+               -fx-cursor: hand;
+               " />
+
+
+            </HBox>
+
+            <!-- ABECEDARIO -->
+            <HBox fx:id="fila1" spacing="10" style="-fx-alignment: center;">
+                <Label text="A"  />
+
+                <Label text="B" />
+                <Label text="C" />
+                <Label text="D" />
+                <Label text="E" />
+                <Label text="F" />
+                <Label text="G" />
+                <Label text="H" />
+                <Label text="I" />
+            </HBox>
+
+            <HBox fx:id="fila2" spacing="10" style="-fx-alignment: center;">
+                <Label text="J" />
+                <Label text="K" />
+                <Label text="L" />
+                <Label text="M" />
+                <Label text="N" />
+                <Label text="O" />
+                <Label text="P" />
+                <Label text="Q" />
+                <Label text="R" />
+            </HBox>
+
+            <HBox fx:id="fila3" spacing="10" style="-fx-alignment: center;">
+                <Label text="S" />
+                <Label text="T" />
+                <Label text="U" />
+                <Label text="V" />
+                <Label text="W" />
+                <Label text="X" />
+                <Label text="Y" />
+                <Label text="Z" />
+            </HBox>
+
+            <HBox spacing="20" style="-fx-alignment: center;">
+                <Label fx:id="lblAciertos" text="✅ Aciertos: 0"
+                       style="-fx-font-size: 18; -fx-text-fill: #2e7d32; -fx-font-weight: bold;" />
+                <Label fx:id="lblFallos" text="❌ Fallos: 0"
+                       style="-fx-font-size: 18; -fx-text-fill: #c62828; -fx-font-weight: bold;" />
+            </HBox>
+
+        </VBox>
+    <Rectangle fx:id="alertOverlay" visible="false" fill="#00000080" StackPane.alignment="CENTER"/>
+
+    <StackPane fx:id="alertPopup" visible="false" prefWidth="400" prefHeight="150"
+               maxWidth="500" maxHeight="200"
+               style="-fx-background-color: #222; -fx-border-color: #d32f2f; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 10;"
+               StackPane.alignment="CENTER">
+
+        <VBox alignment="CENTER" spacing="15" style="-fx-padding: 20;">
+            <Label fx:id="lblAlertMensaje" text="Mensaje" wrapText="true"
+                   maxWidth="Infinity"
+                   alignment="CENTER"
+                   textAlignment="CENTER"
+                   style="-fx-text-fill: #eee; -fx-font-size: 26px; -fx-font-weight: bold;" />
+            <Button text="Cerrar" onAction="#cerrarAlert"
+                    style="-fx-background-color: #6a1b1b;
+               -fx-text-fill: #fff;
+               -fx-font-weight: bold;
+               -fx-background-radius: 5;
+               -fx-font-size: 16px;
+               -fx-min-width: 120px;
+               -fx-min-height: 40px;"/>
+
+        </VBox>
+
+    </StackPane>
+
+
+
+
+</StackPane>
